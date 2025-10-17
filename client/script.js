@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
     const data = new FormData(form)
 
     // user's chatstripe
-    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+    chatContainer.innerHTML += chatStripe(true, data.get('prompt'))
 
     // to clear the textarea input 
     form.reset()
@@ -114,7 +114,7 @@ const handleSubmit = async (e) => {
 
 form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        handleSubmit(e)
+    if (e.key === "Enter") {
+        handleSubmit(e).then()
     }
 })
